@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item List</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom styles */
+        body {
+            background-color: #1a1a1a; /* Dark background color */
+            background-image: url('https://i.imgur.com/WcfRNXe.jpg'); /* Tokyo Night background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Ensure the background image stays fixed while scrolling */
+            color: #ffffff; /* Text color */
+        }
+
+        /* Override default link styles */
+        a {
+            color: #ffffff; /* Link text color */
+            transition: color 0.3s; /* Smooth color transition on hover */
+        }
+
+        a:hover {
+            color: #9ae6b4; /* Change link text color on hover */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mx-auto py-8">
+        <h1 class="text-3xl font-bold mb-4">Item List</h1>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {% for item in items %}
+            <li class="bg-gray-800 bg-opacity-75 shadow-md rounded-md p-4"> <!-- Semi-transparent background -->
+                <h2 class="text-lg font-semibold mb-2">{{ item.name }}</h2>
+                <p class="text-gray-300 mb-1">Description: {{ item.description }}</p>
+                <p class="text-gray-300 mb-1">Created at: {{ item.created_at }}</p>
+                <a href="{% url 'update_item' item.id %}" class="hover:text-blue-300">Update</a> <!-- Adjust link hover color -->
+                <a href="{% url 'delete' item.id%}" class="text-red-300 ml-2">Delete</a> <!-- Adjust link hover color and spacing -->
+            </li>
+            {% endfor %}
+        </ul>
+        <div class="mt-4">
+            <a href="{% url 'add_item' %}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Add Item</a>
+            <a href="{% url 'index' %}" class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ml-2">Cancel</a>
+        </div>
+    </div>
+</body>
+
+</html>

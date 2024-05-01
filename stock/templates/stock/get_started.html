@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Add any additional stylesheets or scripts here -->
+    <style>
+        body {
+            background-color: #1a1c20;
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="text-white flex justify-center items-center h-screen">
+    <div class="max-w-lg mx-auto p-8 rounded-lg shadow-lg bg-gray-800">
+        <h1 class="text-4xl font-bold mb-6 text-center">Stock Management System</h1>
+        <div class="bg-gray-700 p-6 rounded-lg shadow-md">
+            <p class="mb-6 text-gray-200">Welcome to the Stock Management System. This system is designed to help you efficiently manage your stock inventory.</p>
+            <ul class="list-disc pl-6 mb-6 text-gray-200">
+                <li class="mb-2">Add new stock items to your inventory.</li>
+                <li class="mb-2">Update existing stock items with the latest information.</li>
+                <li class="mb-2">Delete stock items that are no longer in your inventory.</li>
+                <li class="mb-2">View the current inventory to see all available stock items.</li>
+            </ul>
+            <p class="mb-6 text-gray-200">Start using the system by clicking the button below:</p>
+            <div class="flex justify-center">
+                <a href="{% url 'index' %}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Get Started</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
